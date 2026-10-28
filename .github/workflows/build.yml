@@ -1,29 +1,60 @@
 name: Build APK and icon pack
+
 on:
   push:
     branches: [ main, master ]
   workflow_dispatch:
+
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
+
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: 8.9
+
       - name: Build debug APK
-        run: gradle assembleDebug --no-daemon
+        run: gradle assembleDebug --no-daemon --stacktrace
+
+      - name: Build release APK (debug-signed, installable)
+        run: gradle assembleRelease --no-daemon --stacktrace
+        continue-on-error: true
+
+      - name: Collect APKs
+        run: |
+          mkdir -p out
+          cp app/build/outputs/apk/debug/app-debug.apk out/DailyCalendar-debug.apk
+          if [ -f app/build/outputs/apk/release/app-release.apk ]; then
+            cp app/build/outputs/apk/release/app-release.apk out/DailyCalendar-release.apk
+          fi
+          ls -l out
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: DailyCalendarIcon-apk
-          path: app/build/outputs/apk/debug/*.apk
+          path: out/*.apk
+
+      - name: Unpack icon pack from liquidglass-all.zip
+        run: |
+          if [ -f liquidglass-all.zip ]; then
+            unzip -o -q liquidglass-all.zip -d /tmp/pack
+            cp -r /tmp/pack/liquidglass-all/icon-pack ./icon-pack
+          fi
+
       - name: Upload icon pack
         uses: actions/upload-artifact@v4
         with:
           name: LiquidGlass-icon-pack
           path: icon-pack/
+          if-no-files-found: ignore
