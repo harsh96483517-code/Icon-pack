@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <queries>
+        <package android:name="com.samsung.android.calendar" />
+        <package android:name="com.google.android.calendar" />
+        <package android:name="com.android.calendar" />
+    </queries>
+
+    <application
+        android:label="Daily Calendar"
+        android:icon="@drawable/ic_app"
+        android:allowBackup="false"
+        android:supportsRtl="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="Daily Calendar"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".OpenCalendarActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver android:name=".DateReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <activity-alias
+            android:name=".Day1"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day2"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day3"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_3">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day4"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_4">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day5"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_5">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day6"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_6">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day7"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_7">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day8"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_8">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day9"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_9">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day10"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_10">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day11"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_11">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day12"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_12">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day13"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_13">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day14"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_14">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day15"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_15">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day16"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_16">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day17"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_17">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day18"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_18">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day19"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_19">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day20"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_20">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day21"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_21">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day22"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_22">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day23"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_23">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day24"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_24">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day25"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_25">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day26"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_26">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day27"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_27">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day28"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_28">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day29"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_29">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day30"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_30">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Day31"
+            android:targetActivity=".OpenCalendarActivity"
+            android:enabled="false"
+            android:exported="true"
+            android:label="Calendar"
+            android:icon="@drawable/cal_31">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+    </application>
+</manifest>
