@@ -23,36 +23,47 @@ jobs:
         with:
           gradle-version: 8.9
 
-      - name: Build debug APK
-        run: gradle assembleDebug --no-daemon --stacktrace
-
-      - name: Build release APK (debug-signed, installable)
-        run: gradle assembleRelease --no-daemon --stacktrace
-        continue-on-error: true
-
-      - name: Collect APKs
-        run: |
-          mkdir -p out
-          cp app/build/outputs/apk/debug/app-debug.apk out/DailyCalendar-debug.apk
-          if [ -f app/build/outputs/apk/release/app-release.apk ]; then
-            cp app/build/outputs/apk/release/app-release.apk out/DailyCalendar-release.apk
-          fi
-          ls -l out
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: DailyCalendarIcon-apk
-          path: out/*.apk
-
-      - name: Unpack icon pack from liquidglass-all.zip
+      - name: Unpack icon pack (icons + tools)
         run: |
           if [ -f liquidglass-all.zip ]; then
             unzip -o -q liquidglass-all.zip -d /tmp/pack
             cp -r /tmp/pack/liquidglass-all/icon-pack ./icon-pack
+            mkdir -p iconpack/src/main/res/drawable-nodpi
+            cp /tmp/pack/liquidglass-all/icon-pack/icons/*.png iconpack/src/main/res/drawable-nodpi/
           fi
+          ls iconpack/src/main/res/drawable-nodpi | wc -l
 
-      - name: Upload icon pack
+      - name: Build APKs
+        run: |
+          gradle :app:assembleDebug :app:assembleRelease :iconpack:assembleRelease --no-daemon --stacktrace
+
+      - name: Collect APKs
+        run: |
+          mkdir -p out
+          cp app/build/outputs/apk/debug/app-debug.apk out/DailyCalendar.apk
+          if [ -f app/build/outputs/apk/release/app-release.apk ]; then
+            cp app/build/outputs/apk/release/app-release.apk out/DailyCalendar-release.apk
+          fi
+          cp iconpack/build/outputs/apk/release/iconpack-release.apk out/LiquidGlass-icon-pack.apk
+          ls -l out
+
+      - name: Upload calendar app APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: DailyCalendarIcon-apk
+          path: |
+            out/DailyCalendar.apk
+            out/DailyCalendar-release.apk
+          if-no-files-found: error
+
+      - name: Upload icon pack APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: LiquidGlass-icon-pack-apk
+          path: out/LiquidGlass-icon-pack.apk
+          if-no-files-found: error
+
+      - name: Upload icon pack sources
         uses: actions/upload-artifact@v4
         with:
           name: LiquidGlass-icon-pack
